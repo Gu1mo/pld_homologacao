@@ -1,0 +1,67 @@
+CREATE TABLE [dbo].[ST_CORRETAGEM_ORDEM] (
+    [VL_CORTOT] float NULL,
+    [VL_TOTNEG] float NULL,
+    [VL_CORTOT_ORI] float NULL,
+    [DESCONTO] float NULL,
+    [CORRETAGEM_INICIAL] float NULL,
+    [PERCENTUAL_DESCONTO] float NULL,
+    [ISS] float NULL,
+    [VL_CORRESP] float NULL,
+    [VL_IRCORR] float NULL,
+    [VL_EMOLUM] float NULL,
+    [VL_EMOLUM_BV] float NULL,
+    [VL_EMOLUM_CB] float NULL,
+    [CD_CLIENTE] int NOT NULL,
+    [CD_ASSESSOR] int NULL,
+    [DT_NEGOCIO] smalldatetime NULL,
+    [CD_NATOPE] char(1) NULL,
+    [TP_MERCADO] varchar(10) NULL,
+    [CD_CONTRAPARTE] numeric(5,0) NULL,
+    [TP_NEGOCIO] varchar(3) NULL,
+    [CD_PAPEL] varchar(12) NULL,
+    [NR_NEGOCIO] int NULL,
+    [HH_NEGOCIO] varchar(5) NULL,
+    [DT_DATORD] smalldatetime NULL,
+    [NR_SEQORD] int NULL,
+    [NR_SUBSEQ] int NULL,
+    [DV_NEGOCIO] int NULL,
+    [QT_DIVISOR] float NULL,
+    [QT_MULTIPLICADOR] float NULL,
+    [VL_NEGOCIO] float NULL,
+    [VL_TAXANA] float NULL,
+    [VL_VALDES] float NULL,
+    [VL_COMASS] float NULL,
+    [VL_AGENTE] float NULL,
+    [VL_TAXREG] float NULL,
+    [VL_TAXREG_BV] float NULL,
+    [VL_TAXREG_CB] float NULL,
+    [VL_ENCARGOS] float NULL,
+    [VL_BASEIRDT] float NULL,
+    [VL_IRRETIDO] float NULL,
+    [VL_IRRF_DESPESA] float NULL,
+    [VL_ISS_CORRESP] float NULL,
+    [VL_LIQOPER] float NULL,
+    [VL_IROPER] float NULL,
+    [CD_SISTEMA_ORIGEM] int NULL,
+    [FT_VALORIZACAO] float NULL,
+    [NR_SEQCOMI] int NULL,
+    [CD_BOLSAMOV] char(1) NULL,
+    [CD_CLIENTE_BRO] int NULL,
+    [DT_SISTEMA] varchar(20) NULL,
+    [IN_AFTERM] varchar(50) NULL,
+    [CD_OPERADOR] int NULL,
+    [IN_LEILAO] varchar(5) NULL,
+    [TP_VCOTER] numeric(5,0) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    [NR_OFEMEGA] bigint NULL
+);
+
+CREATE INDEX [ID001_ST_CORRETAGEM_ORDEM] ON [dbo].[ST_CORRETAGEM_ORDEM] ([CD_CLIENTE], [DT_NEGOCIO]);
+
+CREATE INDEX [ID002_ST_CORRETAGEM_ORDEM] ON [dbo].[ST_CORRETAGEM_ORDEM] ([DT_NEGOCIO]);
+
+CREATE INDEX [ID003_ST_CORRETAGEM_ORDEM] ON [dbo].[ST_CORRETAGEM_ORDEM] ([DT_NEGOCIO], [TP_MERCADO]);
+
+CREATE INDEX [ID004_ST_CORRETAGEM_ORDEM] ON [dbo].[ST_CORRETAGEM_ORDEM] ([DT_NEGOCIO]);
+
+CREATE INDEX [ID005_ST_CORRETAGEM_ORDEM] ON [dbo].[ST_CORRETAGEM_ORDEM] ([DT_NEGOCIO], [CD_CLIENTE]);

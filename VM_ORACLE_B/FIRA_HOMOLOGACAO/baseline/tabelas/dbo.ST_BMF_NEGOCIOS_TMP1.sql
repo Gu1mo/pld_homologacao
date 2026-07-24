@@ -1,0 +1,33 @@
+CREATE TABLE [dbo].[ST_BMF_NEGOCIOS_TMP1] (
+    [CODCLI] numeric(9,0) NULL,
+    [NM_CLIENTE] nvarchar(160) NULL,
+    [DT_PREGAO] datetime NULL,
+    [HR_NEGOCIO] nvarchar(18) NULL,
+    [CD_COMMOD] nchar(13) NULL,
+    [CD_SERIE] nchar(14) NULL,
+    [CD_NEGOCIO] nvarchar(120) NULL,
+    [CD_NATOPE] nchar(1) NULL,
+    [vl_volume] int NULL,
+    [QT_NEGOCIO] float NULL,
+    [VL_NEGOCIO] float NULL,
+    [VALOR] float NULL,
+    [TP_NEGOCIO] int NULL,
+    [NR_NEGOCIO] numeric(12,0) NULL,
+    [IN_PESVIN] nchar(1) NULL,
+    [CODASS] numeric(9,0) NULL,
+    [NM_ASSESSOR] nvarchar(160) NULL,
+    [CANAL] int NULL,
+    [CD_CONTRAPAR] numeric(10,0) NULL,
+    [CD_OPERADOR] numeric(10,0) NULL,
+    [DT_DATORD] datetime NULL,
+    [NR_SEQORD] numeric(7,0) NULL,
+    [NR_SUBSEQ] numeric(3,0) NULL,
+    [DS_MERCAD] nvarchar(130) NULL,
+    [NM_EMIT_ORDEM] nvarchar(130) NULL,
+    [NM_USUARIO] nvarchar(150) NULL,
+    [TP_CLIENTE] numeric(2,0) NULL,
+    [in_after] nchar(1) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
+
+CREATE INDEX [ID001_ST_BMF_NEGOCIOS_TMP1] ON [dbo].[ST_BMF_NEGOCIOS_TMP1] ([DT_PREGAO]);

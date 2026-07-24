@@ -1,0 +1,18 @@
+CREATE TABLE [dbo].[ST_ALERT_PROCURADOR_02] (
+    [DATA] date NULL,
+    [CD_CLIENTE] int NOT NULL,
+    [DT_BVSP] smalldatetime NULL,
+    [DT_BMF] datetime NULL,
+    [DS_NATUREZA_BVSP] varchar(12) NULL,
+    [DS_NATUREZA_BMF] varchar(12) NULL,
+    [NM_CLIENTE] varchar(400) NULL,
+    [IN_PROCUR] varchar(3) NULL,
+    [NM_EMIT_ORDEM] nvarchar(255) NULL,
+    [CD_CPFCGC_EMIT] varchar(20) NULL,
+    [EMIT_PRINCIPAL] varchar(3) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
+
+CREATE INDEX [ID001_ST_ALERT_PROCURADOR_02] ON [dbo].[ST_ALERT_PROCURADOR_02] ([CD_CLIENTE], [DATA]);
+
+CREATE INDEX [ID002_ST_ALERT_PROCURADOR_02] ON [dbo].[ST_ALERT_PROCURADOR_02] ([DATA]);

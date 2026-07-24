@@ -1,0 +1,70 @@
+CREATE TABLE [dbo].[Relatorio] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [INDICE] int NOT NULL,
+    [NOME] nvarchar(1000) NOT NULL,
+    [DESCRICAO] nvarchar(2000) NOT NULL,
+    [PROCEDURE] nvarchar(4000) NOT NULL,
+    [IDCATEGORIA] int NULL,
+    [IDSUBCATEGORIA] int NULL,
+    [ROTA] varchar(80) NULL,
+    [ROTULO] nvarchar(MAX) NULL,
+    [CAMINHO] nvarchar(MAX) NULL,
+    [MOSTRARALERTA] bit NULL,
+    [SQL] nvarchar(MAX) NULL,
+    [ID_MENU] int NULL,
+    [VISIVEL] bit NULL,
+    [ID_PERMISSAO] int NULL,
+    [RELATORIO_PERMISSAO] varchar(160) NULL,
+    [PROCEDUREANINHADA] varchar(255) NULL,
+    [ALERTADIARIO] bit NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    CONSTRAINT [PK_Relatorio] PRIMARY KEY ([ID])
+);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_001] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_002] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_003] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_004] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_005] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_006] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_007] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_008] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_009] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_010] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_011] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDCAT_012] FOREIGN KEY ([IDCATEGORIA]) REFERENCES [dbo].[Categoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_001] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_002] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_003] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_004] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_005] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_006] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_007] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_008] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_009] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_010] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_011] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);
+
+ALTER TABLE [dbo].[Relatorio] ADD CONSTRAINT [FK_Relatorio_IDSUB_012] FOREIGN KEY ([IDSUBCATEGORIA]) REFERENCES [dbo].[Subcategoria] ([ID]);

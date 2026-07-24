@@ -1,0 +1,20 @@
+CREATE TABLE [dbo].[TSCDXPSFI] (
+    [NUM_SEQ_CLIENTE] int NULL,
+    [COD_SEXO] nvarchar(2) NULL,
+    [DATA_NASC] datetime2(7) NULL,
+    [COD_EST_CIVIL] int NULL,
+    [COD_ESCOLAR] int NULL,
+    [NOME_CIDADE_NASC] nvarchar(160) NULL,
+    [SIGL_PAIS_NASC] nvarchar(15) NULL,
+    [SIGL_ESTADO_NASC] nvarchar(15) NULL,
+    [NOME_ORGANIZ_CONTR] nvarchar(223) NULL,
+    [COD_ATIV] int NULL,
+    [NOME_CARGO] nvarchar(160) NULL,
+    [NOME_PAI] nvarchar(160) NULL,
+    [NOME_MAE] nvarchar(160) NULL,
+    [NOME_CONJUGE] nvarchar(160) NULL,
+    [IND_POLIT_EXPOS] nvarchar(13) NULL,
+    [SIGL_PAIS_RESID] nvarchar(15) NULL,
+    [COD_CIDADE_NASC] int NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);

@@ -1,0 +1,70 @@
+CREATE TABLE [dbo].[ST_DADOS_BASICOS_PF] (
+    [NM_CLIENTE] nvarchar(160) NULL,
+    [CD_CLIENTE] int NOT NULL,
+    [CD_CPFCGC] varchar(20) NULL,
+    [DT_CRIACAO] datetime NULL,
+    [DT_ATUALIZ] datetime NULL,
+    [NM_LOGRADOURO] nvarchar(160) NULL,
+    [NR_PREDIO] nvarchar(160) NULL,
+    [NM_COMP_ENDE] nvarchar(160) NULL,
+    [NM_BAIRRO] nvarchar(160) NULL,
+    [NM_CIDADE] nvarchar(160) NULL,
+    [SG_ESTADO] nvarchar(160) NULL,
+    [SG_PAIS] nvarchar(160) NULL,
+    [NM_E_MAIL] nvarchar(160) NULL,
+    [IN_PESS_VINC] nvarchar(160) NULL,
+    [DT_NASC_FUND] datetime2(7) NULL,
+    [DS_TIPO_CLIENTE] nvarchar(160) NULL,
+    [NM_PAI] nvarchar(160) NULL,
+    [NM_MAE] nvarchar(160) NULL,
+    [NM_CONJUGE] nvarchar(160) NULL,
+    [NR_TELEFONE] numeric(18,0) NULL,
+    [DS_NACION] varchar(160) NULL,
+    [IN_POLITICO_EXP] nvarchar(160) NULL,
+    [NM_EMIT_ORDEM] nvarchar(160) NULL,
+    [CD_CPFCGC_EMIT] varchar(20) NULL,
+    [CD_DOC_IDENT_EMIT] nvarchar(50) NULL,
+    [EMISSOR_PRINCIPAL] nvarchar(160) NULL,
+    [CD_SISTEMA] nvarchar(50) NULL,
+    [ENDE_SEQ] int NULL,
+    [MAIL_SEQ] int NULL,
+    [CD_ASSESSOR] numeric(18,0) NULL,
+    [CD_CON_DEP] varchar(10) NULL,
+    [DS_CON_DEP] varchar(10) NULL,
+    [IN_CONTA_INV] nvarchar(160) NULL,
+    [IN_SITUAC] nvarchar(160) NULL,
+    [cd_Cep] varchar(9) NULL,
+    [CD_DDD_TEL] int NULL,
+    [TP_SITUAC] varchar(160) NULL,
+    [nm_grupo] varchar(160) NULL,
+    [NM_ASSESSOR] varchar(160) NULL,
+    [VL_OPERACIONAL1] float NULL,
+    [VL_OPERACIONAL2] float NULL,
+    [VL_OPERACIONAL3] float NULL,
+    [VL_CAPACIDADE_FIN] float NULL,
+    [DS_ATIV] varchar(160) NULL,
+    [DS_CARGO] nvarchar(160) NULL,
+    [DT_ATUALIZ_SALARIO] datetime NULL,
+    [TP_CLIENTE] varchar(100) NULL,
+    [NM_RESU_ASSES] varchar(160) NULL,
+    [IND_CAD_SIMP] nvarchar(160) NULL,
+    [IN_PRINCIPAL] nvarchar(160) NULL,
+    [IN_PROCUR] nvarchar(160) NULL,
+    [DT_ULT_OPER] datetime NULL,
+    [DT_VALIDADE] datetime NULL,
+    [NM_COMPL_NOME] varchar(150) NULL,
+    [CPFCNPJ] varchar(20) NULL,
+    [IN_QUALIFICADO] char(1) NULL,
+    [CD_CNPJ_EMPRESA] varchar(20) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
+
+CREATE INDEX [ID001_ST_DADOS_BASICOS_PF] ON [dbo].[ST_DADOS_BASICOS_PF] ([CD_CLIENTE]);
+
+CREATE INDEX [ID002_ST_DADOS_BASICOS_PF] ON [dbo].[ST_DADOS_BASICOS_PF] ([SG_PAIS]);
+
+CREATE INDEX [ID003_ST_DADOS_BASICOS_PF] ON [dbo].[ST_DADOS_BASICOS_PF] ([NM_CLIENTE], [CD_CLIENTE], [CD_CPFCGC], [DT_CRIACAO], [DT_ATUALIZ], [IN_PESS_VINC], [DS_TIPO_CLIENTE], [DS_NACION], [IN_POLITICO_EXP], [NM_EMIT_ORDEM], [CD_CPFCGC_EMIT], [CD_ASSESSOR], [IN_SITUAC], [TP_SITUAC], [NM_ASSESSOR], [VL_OPERACIONAL1], [DS_ATIV], [TP_CLIENTE], [IND_CAD_SIMP], [IN_PRINCIPAL], [IN_PROCUR], [DT_ULT_OPER], [DT_VALIDADE], [NM_COMPL_NOME]);
+
+CREATE INDEX [ID004_ST_DADOS_BASICOS_PF] ON [dbo].[ST_DADOS_BASICOS_PF] ([CD_CLIENTE], [NM_CLIENTE], [CD_CPFCGC], [IN_PESS_VINC], [CD_ASSESSOR], [IN_SITUAC], [NM_ASSESSOR], [VL_OPERACIONAL1], [CPFCNPJ]);
+
+CREATE INDEX [ID008_ST_DADOS_BASICOS_PF] ON [dbo].[ST_DADOS_BASICOS_PF] ([IN_SITUAC]);

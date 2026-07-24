@@ -1,0 +1,13 @@
+CREATE   TRIGGER [dbo].[TRG_RELATORIOALERTAS_REBUILD_VIEW]
+ON [dbo].[RelatorioAlertas]
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- evita loop/reentrância
+    IF TRIGGER_NESTLEVEL() > 1
+        RETURN;
+
+    EXEC dbo.PR_REBUILD_VDASH_ALERTAS;
+END

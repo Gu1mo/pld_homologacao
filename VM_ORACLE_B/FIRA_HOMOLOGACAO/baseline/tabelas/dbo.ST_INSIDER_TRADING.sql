@@ -1,0 +1,20 @@
+CREATE TABLE [dbo].[ST_INSIDER_TRADING] (
+    [DATA] date NULL,
+    [CD_CLIENTE] int NOT NULL,
+    [CD_PAPEL] varchar(12) NOT NULL,
+    [DT_FATO] date NULL,
+    [FATO_RELEVANTE] nvarchar(MAX) NULL,
+    [PRECO_MEDIO_COMPRA_PRE] numeric(17,2) NULL,
+    [PRECO_MEDIO_VENDA_PRE] numeric(17,2) NULL,
+    [PRECO_MEDIO_COMPRA_POS] numeric(17,2) NULL,
+    [PRECO_MEDIO_VENDA_POS] numeric(17,2) NULL,
+    [QTDE_VALORIZOU] float NOT NULL,
+    [QTDE_DESVALORIZOU] float NOT NULL,
+    [RESULTADO] numeric(17,2) NULL,
+    [AVG_INTERDAY_POS] numeric(17,2) NULL,
+    [AVG_INTRADAY_POS] numeric(17,2) NULL,
+    [ALERTA] char(1) NULL,
+    [RF_VALORIZOU] numeric(17,2) NULL,
+    [RF_DESVALORIZOU] numeric(17,2) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);

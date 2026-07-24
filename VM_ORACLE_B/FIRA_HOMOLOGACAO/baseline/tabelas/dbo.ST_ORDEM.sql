@@ -1,0 +1,28 @@
+CREATE TABLE [dbo].[ST_ORDEM] (
+    [DT_ABERTURA] smalldatetime NULL,
+    [DT_EXECUCAO] smalldatetime NULL,
+    [CD_ASSESSOR] int NULL,
+    [CD_OPERADOR] int NULL,
+    [CD_TIPO_OFERTA] char(1) NULL,
+    [CD_PAPEL] varchar(12) NULL,
+    [CD_ORDEM] decimal(20,0) NULL,
+    [CD_SITUACAO] char(1) NULL,
+    [TP_MERCADO] varchar(3) NULL,
+    [QT_PAPEIS_ORDENS] bigint NULL,
+    [QT_PAPEIS_ORDENS_EXEC] bigint NULL,
+    [CD_CLIENTE] int NOT NULL,
+    [NR_SEQORD] int NULL,
+    [NR_SUBSEQ] int NULL,
+    [NM_EMIT_ORDEM] varchar(200) NULL,
+    [CD_CODUSU] int NULL,
+    [VL_PREPAP] numeric(15,4) NULL,
+    [QT_CANCOF] float NULL,
+    [HORA] varchar(20) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
+
+CREATE INDEX [ID01_ST_ORDEM] ON [dbo].[ST_ORDEM] ([DT_ABERTURA], [HORA], [QT_CANCOF]);
+
+CREATE INDEX [ID02_ST_ORDEM] ON [dbo].[ST_ORDEM] ([DT_ABERTURA], [CD_TIPO_OFERTA], [CD_PAPEL], [CD_CLIENTE], [NR_SEQORD], [VL_PREPAP], [QT_CANCOF], [HORA], [QT_PAPEIS_ORDENS_EXEC]);
+
+CREATE INDEX [ID03_ST_ORDEM] ON [dbo].[ST_ORDEM] ([QT_PAPEIS_ORDENS_EXEC]);

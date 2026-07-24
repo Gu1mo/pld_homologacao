@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[FILTROBYPROCEDURE] (
+    [ORDEM] int NULL,
+    [ROTULO] varchar(200) NOT NULL,
+    [NOME] varchar(200) NOT NULL,
+    [OBRIGATORIO] bit NULL,
+    [VISIVEL] bit NULL,
+    [PROCEDUREORIGEM] varchar(200) NOT NULL,
+    [TIPODADO] nvarchar(MAX) NULL,
+    [SQLSCRIPT] nvarchar(MAX) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
+
+CREATE UNIQUE INDEX [UX_FILTROBYPROCEDURE_Procedure_Ordem] ON [dbo].[FILTROBYPROCEDURE] ([ORDEM], [NOME], [ROTULO], [PROCEDUREORIGEM]);

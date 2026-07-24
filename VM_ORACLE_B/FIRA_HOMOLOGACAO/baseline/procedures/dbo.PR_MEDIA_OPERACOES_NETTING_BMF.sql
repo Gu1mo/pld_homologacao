@@ -1,0 +1,103 @@
+CREATE PROCEDURE [dbo].[PR_MEDIA_OPERACOES_NETTING_BMF]  @ANOMES INT, @CD_CLIENTE VARCHAR (60),@QTDPORPAGINA INT,@PAGINA INT
+WITH RECOMPILE
+AS		
+
+
+--DECLARE @PAGINA        INT = 1;
+--DECLARE @QTDPORPAGINA INT = 500		
+--DECLARE @ANOMES INT , @CD_CLIENTE VARCHAR(60)		
+--SET @ANOMES = 202512
+--SET @CD_CLIENTE = '164'
+
+
+
+
+declare @inicio smalldatetime,@fim smalldatetime
+set @inicio = (select min(dt_periodo) from st_periodo where CD_ANOMES = @ANOMES)
+set @fim = (select min(dt_periodo) from st_periodo where CD_ANOMES = @ANOMES)
+
+---PATRIMONIO  
+---busco o patrimonio do ultimo dia util do mes do alerta
+drop table if exists #PATRIMONIO
+SELECT XX.CD_CLIENTE, isnull(CAST(SUM(VAL_BENS) AS NUMERIC(38,2)),0) PATRIMONIO
+INTO #PATRIMONIO
+FROM ST_PATRIMONIO_LIQ  XX
+WHERE DATA = (SELECT MAX(DATA) FROM ST_PATRIMONIO_LIQ YY 
+				WHERE  (DATA) >= @INICIO
+				AND  (DATA) <= @FIM
+				and DATEPART(WEEKDAY, DATA) NOT IN (7,1)
+				)
+GROUP BY  XX.CD_CLIENTE
+ 
+CREATE NONCLUSTERED INDEX T1         
+ON [DBO].[#PATRIMONIO] ([CD_CLIENTE]) 
+INCLUDE ([PATRIMONIO])  
+
+
+
+--NETTING BMF
+;with t1 as (
+	SELECT 
+		[DATA] AS PERIODO,
+		X.CD_CLIENTE AS [COD. DO CLIENTE],
+		SUM(X.COMPRA) AS COMPRA,
+		SUM(X.VENDA)AS VENDA,
+		SUM(X.COMPRA) + SUM(X.VENDA) NETTING
+	FROM(
+		SELECT 
+			DT_NEGOCIO as data,
+			NC.CD_CLIENTE,
+			SUM(CASE WHEN NC.CD_NATOPE = 'C' THEN (VL_VALOPE) ELSE 0 END) AS COMPRA,
+			SUM(CASE WHEN NC.CD_NATOPE = 'V' THEN (VL_VALOPE) ELSE 0 END) AS VENDA			
+
+		FROM ST_BMF_NEGOCIOS_NC NC
+		inner join ST_PERIODO p on NC.DT_NEGOCIO = p.DT_PERIODO
+		WHERE 
+			CD_ANOMES = @ANOMES					
+			AND CD_CLIENTE = CASE WHEN ISNULL(@CD_CLIENTE,'')='' THEN CD_CLIENTE ELSE ISNULL(@CD_CLIENTE,'') END	
+		AND NC.TP_NEGOCIO IN ('NORMAL','DAY TRADE','DAYTRADE')	
+		GROUP BY DT_NEGOCIO, NC.CD_CLIENTE
+	)X
+	
+	GROUP BY X.DATA,X.CD_CLIENTE
+)
+
+
+--NETTING DIA
+,t5 as (
+select PERIODO,[COD. DO CLIENTE],SUM(NETTING) as Total_DIA from t1
+group by PERIODO,[COD. DO CLIENTE]
+ 
+)
+
+--NETTING MES
+,t2 as (
+select [COD. DO CLIENTE],SUM(NETTING) as Total_MEs from t1
+group by [COD. DO CLIENTE]
+)
+
+
+
+select 
+FORMAT(T1.PERIODO,'d','pt-br') as PERIODO,
+T1.[COD. DO CLIENTE],
+v.nm_cliente as  [NOME DO CLIENTE],
+format(T1.COMPRA,'f','pt-br') AS COMPRA,
+format(T1.VENDA,'f','pt-br') AS VENDA,
+format(ISNULL(T5.Total_DIA,0),'f','pt-br') AS [NETTING DIARIO],
+format(t2.Total_MEs,'f','pt-br') AS [NETTING MES],
+format(ABS(t2.Total_MEs),'f','pt-br') AS [NETTING MES ABS],
+format(ISNULL(t3.PATRIMONIO,0),'f','pt-br') AS [PATRIMONIO],
+CASE WHEN ABS(t2.Total_MEs) > (ISNULL(t3.PATRIMONIO,0)) THEN 'SIM' ELSE 'NAO' END [ALERTA MENSAL]
+
+from t1
+left outer join t2 ON t1.[COD. DO CLIENTE] = t2.[COD. DO CLIENTE]
+left outer join (select distinct cd_cliente,nm_cliente from v_cliente_todos) v on t1.[COD. DO CLIENTE] = v.cd_cliente
+left outer join #patrimonio T3 ON t1.[COD. DO CLIENTE] = t3.CD_CLIENTE
+left outer join t5 ON t1.[COD. DO CLIENTE] = t5.[COD. DO CLIENTE] AND T1.PERIODO = T5.PERIODO
+
+WHERE ISNULL(T1.COMPRA,0) > 0 OR ISNULL(T1.VENDA,0) > 0
+								
+ORDER BY 1
+OFFSET (ISNULL(@PAGINA,1) - 1) * CASE WHEN  ISNULL(@QTDPORPAGINA,'') = '' THEN 100000000 ELSE @QTDPORPAGINA END ROWS
+FETCH NEXT CASE WHEN  ISNULL(@QTDPORPAGINA,'') = '' THEN 100000000 ELSE @QTDPORPAGINA END ROWS ONLY;

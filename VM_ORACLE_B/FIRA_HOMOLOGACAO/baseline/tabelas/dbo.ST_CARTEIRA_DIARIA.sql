@@ -1,0 +1,7 @@
+CREATE TABLE [dbo].[ST_CARTEIRA_DIARIA] (
+    [DATA] smalldatetime NOT NULL,
+    [CD_CLIENTE] int NOT NULL,
+    [CARTEIRA] float NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    CONSTRAINT [PK_ST_CARTEIRA_DIARIA] PRIMARY KEY ([DATA], [CD_CLIENTE])
+);

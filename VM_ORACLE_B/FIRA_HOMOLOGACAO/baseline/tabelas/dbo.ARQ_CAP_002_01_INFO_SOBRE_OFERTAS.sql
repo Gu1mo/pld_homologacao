@@ -1,0 +1,21 @@
+CREATE TABLE [dbo].[ARQ_CAP_002_01_INFO_SOBRE_OFERTAS] (
+    [denom_soc] varchar(166) NULL,
+    [nm_pregao] varchar(50) NULL,
+    [categoria] varchar(50) NULL,
+    [cod_neg] varchar(50) NULL,
+    [isin] varchar(50) NULL,
+    [n_emiss] date NULL,
+    [classe] varchar(50) NULL,
+    [tp_oferta] varchar(50) NULL,
+    [dt_encerramento] date NULL,
+    [dt_lib_neg_para_comprad_p] date NULL,
+    [dt_lib_neg_para_comprad_q] date NULL,
+    [dt_lib_neg_para_comprad_v] date NULL,
+    [dt_entrega] date NULL,
+    [versao] date NULL,
+    [situacao] varchar(50) NULL,
+    [link_para_documento] varchar(121) NULL,
+    [criado_em_utc] date NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    [dt_carga] date NULL
+);

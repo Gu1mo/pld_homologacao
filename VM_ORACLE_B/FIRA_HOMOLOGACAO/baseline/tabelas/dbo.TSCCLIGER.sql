@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].[TSCCLIGER] (
+    [DT_NASC_FUND] datetime2(7) NULL,
+    [CD_CON_DEP] numeric(2,0) NULL,
+    [CD_CPFCGC] varchar(20) NULL,
+    [NM_CLIENTE] nvarchar(160) NULL,
+    [DT_CRIACAO] datetime2(7) NULL,
+    [DT_ATUALIZ] datetime2(7) NULL,
+    [IN_PESS_VINC] nchar(1) NULL,
+    [IN_POLITICO_EXP] nchar(1) NULL,
+    [TP_SITUAC] nvarchar(2) NULL,
+    [VL_OPERACIONAL1] numeric(17,2) NULL,
+    [VL_OPERACIONAL2] numeric(17,2) NULL,
+    [VL_OPERACIONAL3] numeric(17,2) NULL,
+    [VL_CAPACIDADE_FIN] numeric(17,2) NULL,
+    [TP_CLIENTE] numeric(2,0) NULL,
+    [CD_GRUPO] numeric(3,0) NULL,
+    [TP_PESSOA] nchar(1) NULL,
+    [DT_VL_OPERACIONAL] datetime2(7) NULL,
+    [CD_ASSESSOR] numeric(5,0) NULL,
+    [TP_INVESTIDOR] nvarchar(MAX) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);

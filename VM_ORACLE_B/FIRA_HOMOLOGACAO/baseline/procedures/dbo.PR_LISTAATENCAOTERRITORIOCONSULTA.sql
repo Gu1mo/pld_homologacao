@@ -1,0 +1,25 @@
+CREATE PROCEDURE [dbo].[PR_LISTAATENCAOTERRITORIOCONSULTA]
+(
+	@Pais VARCHAR(1000),
+	@Cidade VARCHAR(1000)
+)
+AS
+BEGIN
+	CREATE TABLE #TEMPTABLERESULTADO (
+		Lista VARCHAR(1000),
+		Territorio VARCHAR(1000)
+	)
+
+	INSERT INTO #TEMPTABLERESULTADO (Lista, Territorio)
+	SELECT
+		(SELECT Nome FROM ListaAtencaoSublista LAS WHERE LAS.Id = LA.IdSublista) AS Lista,
+		CASE
+			WHEN Nome IS NULL THEN Territorio
+			ELSE Nome
+		END AS Territorio
+	FROM ListaAtencao LA
+	WHERE LA.IdSublista IN (19, 20, 32, 33, 34, 47, 57, 65)
+	AND (Nome = @Cidade OR Nome = @Pais)
+
+	SELECT * FROM #TEMPTABLERESULTADO;
+END

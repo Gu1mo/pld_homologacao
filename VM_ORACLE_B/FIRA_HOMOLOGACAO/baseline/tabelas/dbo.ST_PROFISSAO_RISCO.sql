@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[ST_PROFISSAO_RISCO] (
+    [PROFISSAO] varchar(160) NULL,
+    [PONTUACAO] varchar(160) NULL,
+    [RISCO] varchar(160) NULL,
+    [TIPO] varchar(10) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
+
+CREATE INDEX [ID001_ST_PROFISSAO_RISCO] ON [dbo].[ST_PROFISSAO_RISCO] ([PROFISSAO], [RISCO]);

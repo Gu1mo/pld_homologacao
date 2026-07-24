@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[REFERENCIA] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [REF_PERIODO] nvarchar(MAX) NULL,
+    [REF_ANO] int NOT NULL,
+    [VISIVEL] bit NULL,
+    [SOMENTELEITURA] bit NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    CONSTRAINT [PK_REFERENCIA] PRIMARY KEY ([ID])
+);

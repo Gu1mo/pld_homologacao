@@ -1,0 +1,5 @@
+CREATE TABLE [dbo].[AtivacaoPortalFira] (
+    [Chave] varchar(1000) NOT NULL,
+    [DataVencimento] int NOT NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);

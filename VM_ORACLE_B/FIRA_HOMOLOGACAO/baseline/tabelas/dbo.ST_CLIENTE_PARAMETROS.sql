@@ -1,0 +1,6 @@
+CREATE TABLE [dbo].[ST_CLIENTE_PARAMETROS] (
+    [ID_PARAMETRO] int IDENTITY(1,1) NOT NULL,
+    [CD_PARAMETRO] varchar(50) NULL,
+    [DS_PARAMETRO] varchar(100) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);

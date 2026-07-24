@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[ST_ALERT_OMG] (
+    [DATA] date NULL,
+    [CD_CLIENTE] int NULL,
+    [CD_CPFCGC] varchar(20) NULL,
+    [VINCULOS] varchar(500) NULL,
+    [QTD_NEGOCIO_MES_GRUPO] int NULL,
+    [CONCENTRACAO] decimal(17,2) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    [CD_CONTRAPARTE] varchar(2000) NULL,
+    [NR_NEGOCIO] varchar(MAX) NULL,
+    [VOLUME_MES_CLIENTE] decimal(17,2) NULL,
+    [VOLUME_MES_GRUPO] decimal(17,2) NULL
+);
+
+CREATE INDEX [ID001_ST_ALERT_OMG] ON [dbo].[ST_ALERT_OMG] ([CD_CLIENTE], [DATA]);
+
+CREATE INDEX [ID002_ST_ALERT_OMG] ON [dbo].[ST_ALERT_OMG] ([DATA]);

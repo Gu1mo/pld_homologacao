@@ -1,0 +1,2 @@
+CREATE   PROCEDURE [dbo].[usp_Gera_ST_PERIODO_B3]
+AS

@@ -1,0 +1,6 @@
+CREATE TABLE [dbo].[B3_FERIADOS] (
+    [DT_FERIADO] date NOT NULL,
+    [DS_FERIADO] varchar(120) NOT NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    CONSTRAINT [PK_B3_FERIADOS] PRIMARY KEY ([DT_FERIADO])
+);

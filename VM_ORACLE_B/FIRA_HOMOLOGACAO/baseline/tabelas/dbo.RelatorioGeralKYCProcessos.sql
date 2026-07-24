@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].[RelatorioGeralKYCProcessos] (
+    [id] int IDENTITY(1,1) NOT NULL,
+    [uuid] varchar(50) NULL,
+    [documento] nvarchar(MAX) NULL,
+    [tipo_pessoa] nvarchar(MAX) NULL,
+    [numero] nvarchar(MAX) NULL,
+    [classe] nvarchar(MAX) NULL,
+    [area] nvarchar(MAX) NULL,
+    [local_fisico] nvarchar(MAX) NULL,
+    [assunto] nvarchar(MAX) NULL,
+    [outros_assuntos] nvarchar(MAX) NULL,
+    [distribuicao] nvarchar(MAX) NULL,
+    [vara] nvarchar(MAX) NULL,
+    [controle] nvarchar(MAX) NULL,
+    [juiz] nvarchar(MAX) NULL,
+    [valor_acao] nvarchar(MAX) NULL,
+    [partes] nvarchar(MAX) NULL,
+    [movimentacao] nvarchar(MAX) NULL,
+    [url] nvarchar(MAX) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    CONSTRAINT [PK_RelatorioGeralKYCProcessos] PRIMARY KEY ([id])
+);

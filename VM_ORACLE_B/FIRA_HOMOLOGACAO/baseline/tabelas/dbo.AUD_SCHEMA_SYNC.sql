@@ -1,0 +1,23 @@
+CREATE TABLE [dbo].[AUD_SCHEMA_SYNC] (
+    [audit_id] bigint IDENTITY(1,1) NOT NULL,
+    [batch_id] uniqueidentifier NOT NULL,
+    [event_time_utc] datetime2(7) NULL,
+    [src_object] nvarchar(300) NOT NULL,
+    [dst_object] nvarchar(300) NOT NULL,
+    [action_type] varchar(20) NOT NULL,
+    [column_name] sysname NULL,
+    [command_sql] nvarchar(MAX) NOT NULL,
+    [executed] bit NOT NULL DEFAULT ((0)),
+    [success] bit NULL,
+    [error_number] int NULL,
+    [error_message] nvarchar(4000) NULL,
+    [started_at_utc] datetime2(7) NULL,
+    [ended_at_utc] datetime2(7) NULL,
+    [duration_ms] int NULL,
+    [executed_by] sysname NOT NULL DEFAULT (suser_sname()),
+    [host_name] sysname NULL DEFAULT (host_name()),
+    [app_name] sysname NULL DEFAULT (app_name()),
+    [cmd_id] int NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    CONSTRAINT [PK_AUD_SCHEMA_SYNC] PRIMARY KEY ([audit_id])
+);

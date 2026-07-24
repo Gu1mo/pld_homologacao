@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[ST_ALERT_BMF_AML] (
+    [DATA] date NULL,
+    [CD_CLIENTE] int NOT NULL,
+    [VOLUME] float NULL,
+    [CD_CLIENTE_PONTA] int NOT NULL,
+    [MEDIA] float NULL,
+    [DESVIO] float NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
+
+CREATE INDEX [ID001_ST_ALERT_BMF_AML] ON [dbo].[ST_ALERT_BMF_AML] ([CD_CLIENTE], [DATA]);
+
+CREATE INDEX [ID002_ST_ALERT_BMF_AML] ON [dbo].[ST_ALERT_BMF_AML] ([DATA]);

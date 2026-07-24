@@ -1,0 +1,7 @@
+CREATE TABLE [dbo].[ST_CORRETORA] (
+    [CD_CORRET] int NULL,
+    [NM_CORRET] varchar(MAX) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
+
+CREATE INDEX [ID001_ST_CORRETORA] ON [dbo].[ST_CORRETORA] ([CD_CORRET]);

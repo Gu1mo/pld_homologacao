@@ -1,0 +1,23 @@
+CREATE TABLE [dbo].[RelatorioGeralKYCAgendamento] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [CpfCnpj] varchar(20) NULL,
+    [Nome] nvarchar(1000) NULL,
+    [DataHoraConsulta] datetime NULL,
+    [Status] int NULL,
+    [ClientIdentity] varchar(2048) NULL,
+    [Classificacao] int NULL,
+    [DataConclusao] smalldatetime NULL,
+    [Nascimento] nvarchar(50) NULL,
+    [Listas] int NULL,
+    [Noticias] int NULL,
+    [Processos] int NULL,
+    [Rfb] int NULL,
+    [Profissao] nvarchar(1000) NULL,
+    [ProceedingsUUID] nvarchar(1000) NULL,
+    [Pad] int NULL,
+    [Pas] int NULL,
+    [DossiePrincipalID] int NULL,
+    [PadBSM] int NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    CONSTRAINT [PK_RelatorioGeralKYCAgendamento] PRIMARY KEY ([Id])
+);

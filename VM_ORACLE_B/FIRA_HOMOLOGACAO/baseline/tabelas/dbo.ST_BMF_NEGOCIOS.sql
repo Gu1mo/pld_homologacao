@@ -1,0 +1,42 @@
+CREATE TABLE [dbo].[ST_BMF_NEGOCIOS] (
+    [CD_CLIENTE] int NOT NULL,
+    [DT_NEGOCIO] datetime NULL,
+    [HR_NEGOCIO] varchar(8) NULL,
+    [CD_COMMOD] varchar(10) NULL,
+    [CD_SERIE] char(4) NULL,
+    [CD_NEGOCIO] varchar(20) NULL,
+    [CD_NATOPE] varchar(1) NULL,
+    [VL_VOLUME] float NULL,
+    [QT_NEGOCIO] float NOT NULL,
+    [PR_NEGOCIO] float NOT NULL,
+    [VALOR] float NULL,
+    [TP_NEGOCIO] varchar(21) NULL,
+    [NR_NEGOCIO] numeric(12,0) NULL,
+    [IN_PESS_VINC] char(1) NULL,
+    [CD_ASSESSOR] int NULL,
+    [NM_ASSESSOR] varchar(60) NULL,
+    [CD_CANAL] varchar(60) NULL,
+    [CD_CORRET] int NULL,
+    [CD_OPERADOR] varchar(10) NULL,
+    [DT_DATORD] smalldatetime NULL,
+    [NR_SEQORD] int NULL,
+    [NR_SUBSEQ] int NULL,
+    [DS_MERCAD] varchar(100) NULL,
+    [NM_EMIT_ORDEM] varchar(100) NULL,
+    [NM_USUARIO] varchar(100) NULL,
+    [TP_CLIENTE] int NULL,
+    [in_after] char(1) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
+
+CREATE INDEX [ID001_ST_BMF_NEGOCIOS] ON [dbo].[ST_BMF_NEGOCIOS] ([DT_NEGOCIO]);
+
+CREATE INDEX [ID001_ST_BMF_NEGOCIOS_OMG] ON [dbo].[ST_BMF_NEGOCIOS] ([DT_NEGOCIO], [CD_NATOPE]);
+
+CREATE INDEX [ID002_ST_BMF_NEGOCIOS] ON [dbo].[ST_BMF_NEGOCIOS] ([DT_NEGOCIO]);
+
+CREATE INDEX [ID002_ST_BMF_NEGOCIOS_OMG] ON [dbo].[ST_BMF_NEGOCIOS] ([CD_CLIENTE], [DT_NEGOCIO], [CD_NATOPE]);
+
+CREATE INDEX [ID003_ST_BMF_NEGOCIOS] ON [dbo].[ST_BMF_NEGOCIOS] ([DT_NEGOCIO]);
+
+CREATE INDEX [ID004_ST_BMF_NEGOCIOS] ON [dbo].[ST_BMF_NEGOCIOS] ([DT_NEGOCIO], [CD_COMMOD]);

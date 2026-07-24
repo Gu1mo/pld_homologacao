@@ -1,0 +1,25 @@
+CREATE TABLE [dbo].[ST_PERIODO] (
+    [ID_PERIODO] int IDENTITY(1,1) NOT NULL,
+    [DT_PERIODO] smalldatetime NULL,
+    [DT_PERIODO_ANT] smalldatetime NULL,
+    [CD_ANO] int NULL,
+    [CD_MES] int NULL,
+    [DS_MES] varchar(50) NULL,
+    [CD_ANOMES] int NULL,
+    [DS_ANOMES] varchar(50) NULL,
+    [CD_ANOTRIM] int NULL,
+    [DS_ANOTRIM] varchar(50) NULL,
+    [CD_DIA] int NULL,
+    [CD_DIASEMANA] int NULL,
+    [DS_DIASEMANA_ABREV] varchar(50) NULL,
+    [DS_DIASEMANA] varchar(50) NULL,
+    [DT_FERIADO] varchar(10) NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    CONSTRAINT [PK_ST_PERIODO] PRIMARY KEY ([ID_PERIODO])
+);
+
+CREATE INDEX [ID001_ST_PERIODO] ON [dbo].[ST_PERIODO] ([DT_PERIODO]);
+
+CREATE INDEX [ID002_ST_PERIODO] ON [dbo].[ST_PERIODO] ([DT_PERIODO], [CD_ANOMES]);
+
+CREATE INDEX [IX_ST_PERIODO_DT_PERIODO] ON [dbo].[ST_PERIODO] ([DT_PERIODO]);

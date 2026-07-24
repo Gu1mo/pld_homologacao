@@ -1,0 +1,6 @@
+CREATE TABLE [dbo].[EXPIRACAO_TOKEN] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [HORAS] int NOT NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate()),
+    CONSTRAINT [PK_EXPIRACAO_TOKEN] PRIMARY KEY ([ID])
+);

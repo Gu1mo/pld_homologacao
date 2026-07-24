@@ -1,0 +1,19 @@
+CREATE TABLE [dbo].[ST_ALERT_OMC_01] (
+    [DATA] date NULL,
+    [CD_CLIENTE] int NULL,
+    [NR_NEGOCIO] int NULL,
+    [QT_NEGOCIO_COMPRA] float NULL,
+    [QT_NEGOCIO_VENDA] float NULL,
+    [CD_PAPEL] varchar(50) NULL,
+    [HH_COMPRA] varchar(5) NULL,
+    [HH_VENDA] varchar(5) NULL,
+    [VL_TOTNEG_COMPRA] float NULL,
+    [VL_TOTNEG_VENDA] float NULL,
+    [VL_NEGOCIO_COMPRA] float NULL,
+    [VL_NEGOCIO_VENDA] float NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
+
+CREATE INDEX [ID001_ST_ALERT_OMC_01] ON [dbo].[ST_ALERT_OMC_01] ([CD_CLIENTE], [DATA]);
+
+CREATE INDEX [ID002_ST_ALERT_OMC_01] ON [dbo].[ST_ALERT_OMC_01] ([DATA]);

@@ -1,0 +1,18 @@
+CREATE TABLE [dbo].[T2#] (
+    [CD_CLIENTE_COMPROU] numeric(7,0) NULL,
+    [NM_CLIENTE_COMPROU] varchar(60) NULL,
+    [QT_NEGOCIO_COMPROU] bigint NULL,
+    [VL_NEGOCIO_COMPROU] float NULL,
+    [CD_NEGOCIO_COMPROU] varchar(12) NULL,
+    [DT_PREGAO_COMPROU] datetime NULL,
+    [CD_CONTRAPARTE_COMPROU] int NULL,
+    [CD_CONTRAPARTE_COMPROU_DE] int NULL,
+    [CD_CLIENTE_COMPROU_DE] numeric(7,0) NULL,
+    [NM_CLIENTE_COMPROU_DE] varchar(60) NULL,
+    [QT_NEGOCIO_COMPROU_DE] bigint NULL,
+    [VL_NEGOCIO_COMPROU_DE] float NULL,
+    [NR_NEGOCIO_COMPROU] numeric(9,0) NULL,
+    [CD_NATOPE] char(1) NULL,
+    [FT_VALORIZACAO] float NULL,
+    [DT_FIRA] datetime NULL DEFAULT (getdate())
+);
