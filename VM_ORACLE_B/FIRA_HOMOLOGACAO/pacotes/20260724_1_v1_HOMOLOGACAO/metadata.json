@@ -1,0 +1,9 @@
+{
+  "pacote_id": 1,
+  "versao": 1,
+  "etapa": "HOMOLOGACAO",
+  "execucao_id": 1,
+  "status_execucao": "SUCESSO",
+  "solicitante": "Heitor Guilherme",
+  "motivo": "01 - mesa_retail_bmf.sql: Ajuste na coluna VL_VALOPE, retirando a lógicia  que era usada para somar e apenas utilizando a coluna VL_VALOPE direto.\r\n\r\n02 - ranking_daytrade_bovespa.sql : mudança na regra para pegar tanto prejuizos atipicos quanto lucros atipicos vinculado assertividade\r\n\r\n03 - ranking_daytrade_bmf.sql :  mudança na regra para pegar tanto prejuizos atipicos quanto lucros atipicos vinculado assertividade"
+}
