@@ -1,4 +1,5 @@
-CREATE   PROCEDURE [dbo].[PR_ANALISE_MESA_REATIL_BMF]
+
+ALTER   PROCEDURE [dbo].[PR_ANALISE_MESA_REATIL_BMF]
 (
     @inicio        smalldatetime,
     @fim           smalldatetime,
@@ -98,3 +99,4 @@ BEGIN
 	FETCH NEXT CASE WHEN  ISNULL(@QTDPORPAGINA,'') = '' THEN 100000000 ELSE @QTDPORPAGINA END ROWS ONLY;
 
 END
+
