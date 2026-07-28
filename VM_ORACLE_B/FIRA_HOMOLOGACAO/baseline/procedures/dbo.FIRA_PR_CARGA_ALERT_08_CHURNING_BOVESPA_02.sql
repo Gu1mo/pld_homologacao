@@ -12,7 +12,7 @@ Condição de Alerta:
 Se TR for maior que 2, um alerta é acionado
 CE for maior ou igual a 11,2%, um alerta é acionado.
 *************************************************************************************************/
-
+--Gobbilon quer mudar a regra do alerta e precisamos atende-lo
  --passo 1
 /**********************************
 inicio da etapa de verificação
