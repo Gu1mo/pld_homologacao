@@ -1,0 +1,9 @@
+{
+  "pacote_id": 17,
+  "versao": 1,
+  "etapa": "HOMOLOGACAO",
+  "execucao_id": 19,
+  "status_execucao": "SUCESSO",
+  "solicitante": "Guilherme Martins ",
+  "motivo": "Ajuste na coluna VL_VALOPE, retirando a lógica que era usada para somar e apenas utilizando a coluna VL_VALOPE direto, com o objetivo de simplificar a operação e evitar possíveis erros de cálculo. Isso foi feito para melhorar a precisão e a eficiência do procedimento PR_ANALISE_MESA_REATIL_BMF, que é responsável por analisar e retornar informações de negócios de mesa de retalho."
+}

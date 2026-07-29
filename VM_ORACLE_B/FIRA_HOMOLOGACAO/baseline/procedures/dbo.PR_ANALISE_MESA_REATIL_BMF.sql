@@ -10,8 +10,9 @@ CREATE   PROCEDURE [dbo].[PR_ANALISE_MESA_REATIL_BMF]
 )
 AS
 
+--23/07/2026 - Guimo e Gobbo :Ajuste na coluna VL_VALOPE, retirando a lógicia  que era usada para somar e apenas utilizando a coluna VL_VALOPE direto.
 
---teste heitor
+
 --declare @inicio smalldatetime, @fim smalldatetime,@cd_cliente varchar(10), @CD_SERIE VARCHAR(10), @CD_COMMOD VARCHAR(10) , @QTDPORPAGINA INT, @PAGINA INT	
 --set @inicio ='20251201'
 --set @fim ='20251231'
