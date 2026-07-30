@@ -6,7 +6,7 @@ CREATE TABLE [dbo].[ST_LOG_CARGA_ALERTA] (
     [DTINICIO] datetime NULL,
     [DTFIM] datetime NULL,
     [STATUS] varchar(20) NULL,
-    [TEMPO_EXECUCAO] AS (CONVERT([time],isnull([DTFIM],getdate())-[DTINICIO])),
+    [TEMPO_EXECUCAO] time(7) NULL,
     [ERRO] varchar(MAX) NULL,
     [DT_FIRA] datetime NULL DEFAULT (getdate())
 );

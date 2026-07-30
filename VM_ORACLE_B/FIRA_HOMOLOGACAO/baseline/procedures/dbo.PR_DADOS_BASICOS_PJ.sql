@@ -71,7 +71,6 @@ BEGIN
             ,CD_ASSESSOR                                                AS [CÓD. ASSESSOR]
             ,NM_ASSESSOR                                                AS [NOME DO ASSESSOR]
             ,FORMAT(DT_ULT_OPER,'d','pt-br')                           AS [DATA ULT. OPERAÇÃO]
-			, 9999 [Códido da Corretora]
         FROM DADOS_DEDUP
         WHERE RN = 1
         ORDER BY CD_CLIENTE
@@ -112,7 +111,6 @@ BEGIN
             ,A.CD_ASSESSOR                                                AS [CÓD. ASSESSOR]
             ,A.NM_ASSESSOR                                                AS [NOME DO ASSESSOR]
             ,FORMAT(A.DT_ULT_OPER,'d','pt-br')                           AS [DATA ULT. OPERAÇÃO]
-			, 9999 [Códido da Corretora]
         FROM ST_DADOS_BASICOS_PJ A
         LEFT JOIN ST_PROFISSAO_RISCO B ON A.DS_TIPO_CLIENTE = B.PROFISSAO
         WHERE A.CD_CLIENTE = CASE WHEN ISNULL(@CD_CLIENTE,'')='' THEN A.CD_CLIENTE ELSE @CD_CLIENTE END
