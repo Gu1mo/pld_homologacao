@@ -73,6 +73,7 @@ BEGIN
             ,NM_PAI                                                      AS [NOME DO PAI]
             ,NM_CONJUGE                                                  AS [NOME DO CÔNJUGE]
             ,CASE IN_PRINCIPAL WHEN 'S' THEN 'SIM' WHEN 'N' THEN 'NÃO' ELSE '' END AS [EMISSOR PRINCIPAL]
+			, 9999 [Códido da Corretora]
         FROM DADOS_DEDUP
         WHERE RN = 1
         ORDER BY CD_CLIENTE
@@ -116,6 +117,7 @@ BEGIN
             ,A.NM_PAI                                                      AS [NOME DO PAI]
             ,A.NM_CONJUGE                                                  AS [NOME DO CÔNJUGE]
             ,CASE A.IN_PRINCIPAL WHEN 'S' THEN 'SIM' WHEN 'N' THEN 'NÃO' ELSE '' END AS [EMISSOR PRINCIPAL]
+			, 9999 [Códido da Corretora]
         FROM ST_DADOS_BASICOS_PF A
         LEFT JOIN ST_PROFISSAO_RISCO B ON A.DS_ATIV = B.PROFISSAO
         WHERE A.CD_CLIENTE = CASE WHEN ISNULL(@CD_CLIENTE,'')='' THEN A.CD_CLIENTE ELSE @CD_CLIENTE END
