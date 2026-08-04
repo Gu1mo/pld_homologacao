@@ -1,0 +1,9 @@
+{
+  "pacote_id": 38,
+  "versao": 1,
+  "etapa": "HOMOLOGACAO",
+  "execucao_id": 27,
+  "status_execucao": "SUCESSO",
+  "solicitante": "Administrador do Sistema",
+  "motivo": "O script SQL altera o procedimento PR_DADOS_BASICOS_PF para incluir novas funcionalidades de filtragem e ordenação de dados. O procedimento agora aceita parâmetros para filtrar por ano, mês, cliente e página, e retorna informações detalhadas sobre os clientes, incluindo situação, endereço, profissão e risco. O script também inclui uma tabela temporária para armazenar os códigos de cliente que atendem aos critérios de filtragem."
+}
