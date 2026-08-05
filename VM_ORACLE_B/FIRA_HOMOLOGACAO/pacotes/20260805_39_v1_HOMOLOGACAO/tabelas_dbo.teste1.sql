@@ -1,0 +1,1 @@
+IF OBJECT_ID(N'dbo.teste1') IS NOT NULL DROP TABLE dbo.teste1;
