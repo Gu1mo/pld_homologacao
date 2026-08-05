@@ -1,0 +1,9 @@
+{
+  "pacote_id": 42,
+  "versao": 1,
+  "etapa": "HOMOLOGACAO",
+  "execucao_id": 32,
+  "status_execucao": "SUCESSO",
+  "solicitante": "Guilherme Martins ",
+  "motivo": "Alteração do procedimento PR_ANALISE_MESA_REATIL_BMF para ajustar a lógica de cálculo da coluna VL_VALOPE, removendo a lógica de soma e utilizando a coluna VL_VALOPE diretamente. O procedimento é utilizado para análise de negócios de mesa de retal e BMF, e as alterações visam melhorar a precisão dos cálculos e a eficiência do procedimento. Além disso, o procedimento também realiza uma pré-agregação dos dados de negócios e aplica filtros para selecionar os dados relevantes com base nas condições especificadas."
+}
