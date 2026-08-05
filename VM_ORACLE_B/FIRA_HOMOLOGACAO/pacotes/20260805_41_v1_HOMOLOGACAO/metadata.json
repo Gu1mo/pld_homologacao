@@ -1,0 +1,9 @@
+{
+  "pacote_id": 41,
+  "versao": 1,
+  "etapa": "HOMOLOGACAO",
+  "execucao_id": 30,
+  "status_execucao": "SUCESSO",
+  "solicitante": "Guilherme Martins ",
+  "motivo": "O script SQL altera o procedimento armazenado PR_DADOS_BASICOS_PF no banco de dados FIRA_PRODUCAO. O procedimento é utilizado para recuperar dados básicos de clientes pessoa física, considerando filtros como ano, mês, código do cliente, quantidade de registros por página e número da página. O procedimento também verifica se o cliente está relacionado a alertas de período e recupera informações de risco de profissão."
+}
